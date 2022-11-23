@@ -97,7 +97,7 @@ $page::cmd();
 <?
 function validate(){
     global $db,$page;
-    $username = strtolower($_POST['username']);
+    $username = $db->escape( strtolower($_POST['username']) );
     $password = $_POST['password'];
 
     $sql = "select password, user_id, comp_id from users where username = '".$username."'";
